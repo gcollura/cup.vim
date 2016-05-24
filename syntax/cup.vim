@@ -1,7 +1,8 @@
 " Vim syntax file
 " Language:         CUP
-" Maintainer:       Jon Siddle <jon@trapdoor.org>
-" Last Change:      21/3/2007
+" Author:           Jon Siddle <jon@trapdoor.org>
+" Maintainer:       Giulio Collura <giulio.collura@gmail.com>
+" Last Change:      24/5/2016
 
 " Adapted from the jflex syntax file by Gerwin Klein
 
@@ -14,7 +15,7 @@ endif
 " Include java syntax {{{
 if version >= 600
 	runtime! syntax/java.vim
-	unlet b:current_syntax 
+	unlet b:current_syntax
 else
 	so $VIMRUNTIME/syntax/java.vim
 endif
@@ -25,10 +26,10 @@ syn cluster cupOptions contains=cupDef,cupClass,cupTerm,cupNonTerm,cupNonTermDef
 syn region cupStart start="" end="" contains=@cupOptions
 
 
-syn match cupTerm "\<[A-Z]\+\>" contained
-syn match cupNonTerm "\<[a-z]\+\>" contained
-syn match cupNonTermDef "^[a-z]\+\>" contained
-syn match cupClass "\<[A-Z][a-z]\+\>" contained
+syn match cupTerm       "\<[A-Z]\+\>" contained
+syn match cupNonTerm    "\<[a-z][a-z_]*\>" contained
+syn match cupNonTermDef "^[a-z][a-z_]*\>" contained
+syn match cupClass      "\<[A-Z][a-z]\+\>" contained
 
 syn match cupDef "^package.*$" contained
 syn match cupDef "^import.*$" contained
@@ -62,19 +63,19 @@ syn sync clear
 syn sync minlines=10
 
 " highlighting
-hi link cupOption      Special
-hi link cupMacroIdent  Ident
-hi link cupOptionError Error
-hi link cupComment     Comment
-hi link cupOperator    Operator
-hi link cupRuleStates  Special
-hi link cupDef      Keyword
-hi link cupTerm      Macro
-hi link cupNonTermDef      Typedef
-hi link cupNonTerm      Function
-hi link cupVar      Label
-hi link cupClass      Type
+hi link cupOption           Special
+hi link cupMacroIdent       Ident
+hi link cupOptionError      Error
+hi link cupComment          Comment
+hi link cupOperator         Operator
+hi link cupRuleStates       Special
+hi link cupDef              Keyword
+hi link cupTerm             Macro
+hi link cupNonTermDef       Typedef
+hi link cupNonTerm          Function
+hi link cupVar              Label
+hi link cupClass            Type
 " hi cupSectionSep guifg=yellow ctermfg=yellow guibg=blue ctermbg=blue gui=bold cterm=bold
-hi link cupCodeIncludeMark Delimiter
+hi link cupCodeIncludeMark  Delimiter
 
 let b:current_syntax="cup"
