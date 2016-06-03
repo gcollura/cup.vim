@@ -26,8 +26,8 @@ syn cluster cupOptions contains=cupDef,cupClass,cupTerm,cupNonTerm,cupNonTermDef
 syn region cupStart start="" end="" contains=@cupOptions
 
 
-syn match cupTerm       "\<[A-Z][A-Z_]*\>" contained
-syn match cupNonTerm    "\<[a-z][a-z_]*\>" contained
+syn match cupTerm       "\<[A-Z][A-Z1-9_]*\>" contained
+syn match cupNonTerm    "\<[a-z][a-z1-9_]*\>" contained
 syn match cupNonTermDef "^[a-z][a-z_]*\>" contained
 syn match cupClass      "\<[A-Z][a-z]\+\>" contained
 
